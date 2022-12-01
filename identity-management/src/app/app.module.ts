@@ -8,15 +8,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app-material.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LdapDetailComponent } from './ldap-detail/ldap-detail.component';
+import { LdapEditComponent } from './ldap-edit/ldap-edit.component';
+import { LdapAddComponent } from './ldap-add/ldap-add.component';
+import { AlertComponent } from './share/alert/alert.component';
+import { MatFormField } from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LdapListComponent,
-    LdapDetailComponent,
     PageNotFoundComponent,
-    NavbarComponent
+    NavbarComponent,
+    LdapEditComponent,
+    LdapAddComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,7 @@ import { LdapDetailComponent } from './ldap-detail/ldap-detail.component';
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AppMaterialModule
+    AppMaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

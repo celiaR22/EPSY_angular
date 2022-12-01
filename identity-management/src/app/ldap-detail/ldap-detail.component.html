@@ -2,7 +2,7 @@
     <button mat-icon-button (click)="goToLdap()">
         <mat-icon aria-label="Accueil">Arrow_Back</mat-icon>
     </button>
-    Edition d'un utilisateur
+    {{addForm ? "Ajout d'un utilisateur" : "Edition d'un utilisateur"}}
 </h3>
 
 <section class="loading" *ngIf="processLoadRunning== true">
@@ -10,11 +10,13 @@
     <span>&nbsp; En cours de téléchargement...</span>
 </section>
 
+<app-alert *ngIf="errorMessage.length > 0" [type]="'danger'">{{errorMessage}}</app-alert>
+
 <form  class="user-form" *ngIf="processLoadRunning==false"
     [formGroup]='userForm'
     (ngSubmit)="onSubmitForm()"
 >
-</form>
+
 
 <table class="user-full-width">
     <tr>
@@ -26,6 +28,7 @@
                     required
                     (input)="updateLogin()"
                 />
+                <mat-error>Le nom est requis</mat-error>
             </mat-form-field>
         </td>
         <td>
@@ -36,6 +39,7 @@
                     required
                     (input)="updateLogin()"
                 />
+                <mat-error>Le prénom est requis</mat-error>
             </mat-form-field>
         </td>
     </tr>
@@ -51,6 +55,7 @@
                     required
                     (input)="updateMail()"
                 />
+                <mat-error>Le login est requis</mat-error>
             </mat-form-field>
         </td>
         <td>
@@ -69,10 +74,12 @@
     <tr>
         <td>
             <mat-form-field class="user-full-width">
-                <input type="password" matInput  placeholder="Mot de passe"
+                <input type="password" matInput  [placeholder]="passwordPlaceholder"
                     id="password"
                     formControlName="password"
+                    [errorStateMatcher]="confirmValidParentMatcher"
                 />
+                <mat-error>Les mots de passes doivent être identiques</mat-error>
             </mat-form-field>
         </td>
         <td>
@@ -81,7 +88,9 @@
                     placeholder="Vérification mot de passe"
                     id="confirmPassword"
                     formControlName="confirmPassword"
+                    [errorStateMatcher]="confirmValidParentMatcher"
                 />
+                <mat-error>Les mots de passes doivent être identiques</mat-error>
             </mat-form-field>
         </td>
     </tr>
@@ -90,9 +99,10 @@
 <div style="display: flex; justify-content:flex-end;">
     <button type="submit" mat-stroked-button color="primary"
         [disabled]="processValidateRunning || !isFormValid()">
-        <mat-icon $ngIf="processvalidateRunning">
+        <mat-icon *ngIf="processValidateRunning">
             <mat-spinner diameter="16"></mat-spinner>
         </mat-icon>
         Valider
     </button>
 </div>
+</form>

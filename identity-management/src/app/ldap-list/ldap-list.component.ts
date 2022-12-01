@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./ldap-list.component.scss']
 })
 
-export class LdapListComponent implements OnInit, AfterViewInit {
+export class LdapListComponent implements OnInit {
 
   displayedColumns: string[] = ['nomComplet','mail','employeNumero'];
   dataSource = new MatTableDataSource<UserLdap>([]);
@@ -28,8 +28,8 @@ export class LdapListComponent implements OnInit, AfterViewInit {
     this.getUsers();
   }
 
-  ngAfterViewInit(): void {
-  }
+  // ngAfterViewInit(): void {
+  // }
 
   private getUsers(): void{
     this.usersService.getUsers().subscribe(
@@ -65,6 +65,14 @@ export class LdapListComponent implements OnInit, AfterViewInit {
         console.log("navigate has failed");
       }
     });
+  }
+
+  addUser(){
+    this.router.navigate(['/user/add']).then( (e) =>{
+      if(! e){
+        console.log('navigation has failed');
+      }
+    })
   }
 
 }

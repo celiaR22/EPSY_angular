@@ -1,7 +1,11 @@
 
+  <button mat-raised-button color="primary" class="btn-add"
+  (click)="addUser()">
+</button> <br /><br />
 <div class="mat-elevation-z8">
+  
 
-    <!-- <div class="toolbar-filter">&nbsp;&nbsp;
+    <div class="toolbar-filter">&nbsp;&nbsp;
         <mat-form-field style="width: 40%">
             <mat-label>Non Complet</mat-label>
             <input matInput (keyup)="applyFilter($event)"
@@ -14,7 +18,7 @@
             (change)="unactiveChanged($event)"
         > Utilisateur désactivé uniquement
         </mat-slide-toggle>
-    </div> -->
+    </div>
 
     <table mat-table [dataSource]="dataSource">
 

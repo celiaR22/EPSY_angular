@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -15,6 +15,8 @@ import {MatInputModule} from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
+import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { MatSpinner } from '@angular/material/progress-spinner';
 
 @NgModule({
   exports: [
@@ -34,6 +36,12 @@ import { MatSelectModule } from '@angular/material/select';
     MatTooltipModule,
     MatProgressSpinnerModule,
     MatSelectModule,
-  ]
+    MatSnackBarModule,
+    // MatSpinner,
+  ],
+  providers: [
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue:{duration: 2500, verticalPosition: 'top'}}
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppMaterialModule { }

@@ -5,6 +5,7 @@
       aria-label="Toggle sidenav"
       mat-icon-button
       (click) = "drawer.toggle()"
+      class="test"
     >
       <mat-icon *ngIf="drawer.opened === false"
         aria-label="Side nav toggle icon">Menu_open</mat-icon>
@@ -39,7 +40,7 @@
           routerLink="/users/list"
           routerLinkActive="list-item-active"
         >
-          <mat-icon matListIcon>List</mat-icon>
+          <mat-icon matListIcon>list</mat-icon>
           Ldap
         </a>
 
@@ -49,7 +50,7 @@
           routerLink="/users/import"
           routerLinkActive="List-item-active"
         >
-          <mat-icon matListIcon>Save_alt</mat-icon>
+          <mat-icon matListIcon>save_alt</mat-icon>
           Importation
         </a>
       </mat-nav-list>
