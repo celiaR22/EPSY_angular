@@ -5,12 +5,11 @@
       aria-label="Toggle sidenav"
       mat-icon-button
       (click) = "drawer.toggle()"
-      class="test"
     >
       <mat-icon *ngIf="drawer.opened === false"
-        aria-label="Side nav toggle icon">Menu_open</mat-icon>
+        aria-label="Side nav toggle icon">menu_open</mat-icon>
       <mat-icon *ngIf="drawer.opened === true"
-        aria-label="Side nav toggle icon">Menu</mat-icon>
+        aria-label="Side nav toggle icon">menu</mat-icon>
     </button>
     <span>Gestion des utilisateurs</span>
     
@@ -28,7 +27,7 @@
       [opened]="(isHandset$ | async) === false">
 
       <mat-nav-list>
-        <h2 matSubheader>utilisateurs</h2>
+        <h2 matSubheader>Utilisateurs</h2>
         <a mat-list-item
           router-link="/users/dashboard"
           routerLinkActive="List-item-active"
