@@ -7,10 +7,10 @@ import { LdapEditComponent } from './ldap-edit/ldap-edit.component';
 import { LdapAddComponent } from './ldap-add/ldap-add.component';
 
 const routes: Routes = [
-  {path: 'users/list', component: LdapListComponent},
+  // {path: 'users/list', component: LdapListComponent},
   {path: 'users/dashboard', component: LdapListComponent},
-  {path: 'user/add', component: LdapAddComponent},
-  {path:'user/:id', component:LdapEditComponent},
+  // {path: 'user/add', component: LdapAddComponent},
+  // {path:'user/:id', component:LdapEditComponent},
   {path: '**', component: PageNotFoundComponent},
 ];
 

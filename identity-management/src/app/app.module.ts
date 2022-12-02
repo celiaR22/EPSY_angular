@@ -12,25 +12,27 @@ import { LdapEditComponent } from './ldap-edit/ldap-edit.component';
 import { LdapAddComponent } from './ldap-add/ldap-add.component';
 import { AlertComponent } from './share/alert/alert.component';
 import { MatFormField } from '@angular/material/form-field';
+import { LdapManagementModule } from './ldap-management/ldap-management.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LdapListComponent,
+    // LdapListComponent,
     PageNotFoundComponent,
     NavbarComponent,
-    LdapEditComponent,
-    LdapAddComponent,
-    AlertComponent,
+    // LdapEditComponent,
+    // LdapAddComponent,
+    // AlertComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     AppMaterialModule,
+    LdapManagementModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
