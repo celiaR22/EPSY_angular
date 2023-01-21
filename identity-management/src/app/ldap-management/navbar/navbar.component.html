@@ -11,7 +11,7 @@
       <mat-icon *ngIf="drawer.opened === true"
         aria-label="Side nav toggle icon">menu</mat-icon>
     </button>
-    <span>Gestion des utilisateurs</span>
+    <span class="text">Gestion des utilisateurs</span>
     
     <span class="fill-remaining-space"></span>
     <button mat-button (click)="logout()">
@@ -57,7 +57,8 @@
 
     <mat-sidenav-content>
       <div class="main_content">
-        <router-outlet></router-outlet>
+        <ng-content></ng-content>
+        <!-- <router-outlet></router-outlet> -->
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>

@@ -1,3 +1,4 @@
+<app-navbar>
 <h3 class="mat-h3">
     <button mat-icon-button (click)="goToLdap()">
         <mat-icon aria-label="Accueil">Arrow_back</mat-icon>
@@ -96,6 +97,59 @@
     </tr>
 </table>
 
+<table class="user-full-width">
+    <tr>
+        <td>
+            <mat-form-field class="user-full-width">
+                <input type="number" matInput class="form-control" placeholder="Numero employe"
+                    id="employeNumero"
+                    formControlName="employeNumero"
+                    required
+                />
+            </mat-form-field>
+        </td>
+        <td>
+            <mat-form-field class="user-full-width">
+                <input type="number" matInput class="form-control" placeholder="Niveau employe"
+                    id="employeNiveau"
+                    formControlName="employeNiveau"
+                    required
+                />
+            </mat-form-field>
+        </td>
+    </tr>
+</table>
+
+<table class="user-full-width">
+    <tr>
+        <td>
+            <mat-form-field class="user-full-width">
+                <input type="date" matInput class="form-control" placeholder="Date embauche"
+                    id="dateEmbauche"
+                    formControlName="dateEmbauche"
+                    required
+                />
+            </mat-form-field>
+        </td>
+        <td>
+            <mat-form-field class="user-full-width">
+                <input type="number" matInput class="form-control" placeholder="publisher id"
+                    id="publisherId"
+                    formControlName="publisherId"
+                    required
+                />
+            </mat-form-field>
+        </td>
+    </tr>
+</table>
+
+<mat-checkbox
+id="active"
+formControlName="active"
+>
+Actif ? 
+</mat-checkbox>
+
 <div style="display: flex; justify-content:flex-end;">
     <button type="submit" mat-stroked-button color="primary"
         [disabled]="processValidateRunning || !isFormValid()">
@@ -106,3 +160,4 @@
     </button>
 </div>
 </form>
+</app-navbar>

@@ -1,9 +1,9 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
-import { UserLdap } from '../models/user-ldap';
+import { UserLdap } from '../../models/user-ldap';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
-import { UsersService } from '../service/users.service';
+import { UsersService } from '../../service/users.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -27,9 +27,6 @@ export class LdapListComponent implements OnInit {
     this.dataSource.paginator = this.paginator;   
     this.getUsers();
   }
-
-  // ngAfterViewInit(): void {
-  // }
 
   private getUsers(): void{
     this.usersService.getUsers().subscribe(
@@ -59,8 +56,8 @@ export class LdapListComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  edit(login: string){
-    this.router.navigate(['/user',login]).then( (e)=>{
+  edit(id:  number){
+    this.router.navigate(['/users',id]).then( (e)=>{
       if(! e){
         console.log("navigate has failed");
       }
@@ -68,7 +65,7 @@ export class LdapListComponent implements OnInit {
   }
 
   addUser(){
-    this.router.navigate(['/user/add']).then( (e) =>{
+    this.router.navigate(['/users/add']).then( (e) =>{
       if(! e){
         console.log('navigation has failed');
       }

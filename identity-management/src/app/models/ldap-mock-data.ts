@@ -1,11 +1,11 @@
 import { UserLdap } from "./user-ldap"
 
-
 export const LDAP_USERS: UserLdap[] =[
     {
+        id: 1,
         login: 'test.v1',
         nom: 'v1',
-        prenom:'v1 test',
+        prenom:'test',
         nomComplet: 'V1 test',
         motDePasse: 'test',
         mail: 'test@test.fr',
@@ -17,9 +17,10 @@ export const LDAP_USERS: UserLdap[] =[
         active: true,
     },
     {
+        id: 2,
         login: 'test.v2',
         nom: 'v2',
-        prenom:'v2 test',
+        prenom:'v2',
         nomComplet: 'v2 test',
         motDePasse: 'test',
         mail: 'testv2@test.fr',

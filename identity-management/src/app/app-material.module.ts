@@ -1,4 +1,4 @@
-import { NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -16,7 +16,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
-import { MatSpinner } from '@angular/material/progress-spinner';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   exports: [
@@ -37,10 +37,11 @@ import { MatSpinner } from '@angular/material/progress-spinner';
     MatProgressSpinnerModule,
     MatSelectModule,
     MatSnackBarModule,
-    // MatSpinner,
+    MatCardModule
   ],
   providers: [
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue:{duration: 2500, verticalPosition: 'top'}}
   ],
+
 })
 export class AppMaterialModule { }

@@ -3,7 +3,8 @@ import { FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LdapDetailComponent } from '../ldap-detail/ldap-detail.component';
-import { UsersService } from '../service/users.service';
+import { InMemoryUsersService } from '../../service/in-memory-users.service';
+import { UsersService } from '../../service/users.service';
 
 @Component({
   selector: 'app-ldap-edit',
@@ -17,14 +18,14 @@ export class LdapEditComponent extends LdapDetailComponent implements OnInit {
     private route: ActivatedRoute,
     fb: FormBuilder,
     router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    userService: InMemoryUsersService
   ) {
-    super(false, fb, router)
+    super(false, fb, router, userService)
    }
 
   ngOnInit(): void {
     super.onInit();
-    //obtention utilisateur 
     this.getUser();
   }
 
@@ -35,6 +36,7 @@ export class LdapEditComponent extends LdapDetailComponent implements OnInit {
         this.processValidateRunning = false;
         this.errorMessage = "";
         this.snackBar.open('Utilisateur modifié', 'X');
+        this.goToLdap();
       },
       error=> {
         this.processValidateRunning = false;
@@ -45,20 +47,21 @@ export class LdapEditComponent extends LdapDetailComponent implements OnInit {
   }
   
   private getUser(): void{
-    const login = this.route.snapshot.paramMap.get('id');
-    this.processValidateRunning = true;
-    this.usersService.getUser(login).subscribe(user => {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.processLoadRunning = true;
+    this.usersService.getUser(+id).subscribe(
       user =>{
+        this.processLoadRunning = false;
         this.user = user;
         this.copyUserToFormControl();
-        this.processLoadRunning = false;
-      }
+        
+      },
       error =>{
         this.processLoadRunning = false;
         this.errorMessage = "L\'utilisateur n'existe pas !";
         this.snackBar.open('Utilisateur non trouvé!', 'X');
       }
-    });
+    );
   }
 
 }
